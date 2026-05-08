@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --cerape-orange: #d85a30;
+    --cerape-orange-light: #faece7;
+    --cerape-orange-mid: #f0997b;
+    --cerape-green: #1d9e75;
+    --cerape-green-light: #e1f5ee;
+    --cerape-amber: #ba7517;
+    --cerape-amber-light: #faeeda;
+    --cerape-dark: #2c2c2a;
+    --cerape-dark-muted: #888780;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 1000;
+    background: #111827;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.skip-link:focus {
+    left: 1rem;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #2c2c2a;
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 500;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--cerape-orange);
+    outline-offset: 2px;
+}
+
+[x-cloak] { display: none !important; }
