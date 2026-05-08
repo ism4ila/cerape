@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $siteSettings['site_name'] }} · @yield('title', $siteSettings['site_tagline'])</title>
     <meta name="description" content="{{ $siteSettings['site_description'] }}">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="{{ $siteSettings['site_name'] }} · @yield('title', $siteSettings['site_tagline'])">
+    <meta property="og:description" content="{{ $siteSettings['site_description'] }}">
+    <meta property="og:image" content="{{ !empty($siteSettings['logo']) ? (str_starts_with($siteSettings['logo'], 'http') ? $siteSettings['logo'] : asset('storage/' . $siteSettings['logo'])) : asset('favicon.ico') }}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ url()->current() }}">
+    <meta property="twitter:title" content="{{ $siteSettings['site_name'] }} · @yield('title', $siteSettings['site_tagline'])">
+    <meta property="twitter:description" content="{{ $siteSettings['site_description'] }}">
+    <meta property="twitter:image" content="{{ !empty($siteSettings['logo']) ? (str_starts_with($siteSettings['logo'], 'http') ? $siteSettings['logo'] : asset('storage/' . $siteSettings['logo'])) : asset('favicon.ico') }}">
+
     @if(!empty($siteSettings['favicon']))
         <link rel="icon" type="image/x-icon" href="{{ \Illuminate\Support\Str::startsWith($siteSettings['favicon'], ['http://', 'https://']) ? $siteSettings['favicon'] : \Illuminate\Support\Facades\Storage::url($siteSettings['favicon']) }}">
     @endif
