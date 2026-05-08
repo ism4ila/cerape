@@ -33,6 +33,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <style>
+        :root {
+            @if(!empty($siteSettings['theme_primary_color']))
+                --cerape-orange: {{ $siteSettings['theme_primary_color'] }};
+                /* Génération automatique d'une version plus claire pour les fonds */
+                --cerape-orange-light: {{ $siteSettings['theme_primary_color'] }}15; 
+                --cerape-orange-mid: {{ $siteSettings['theme_primary_color'] }}CC;
+            @endif
+        }
+    </style>
 </head>
 <body class="flex min-h-screen flex-col bg-white">
     <a href="#main-content" class="skip-link">{{ __('Aller au contenu') }}</a>
